@@ -4,14 +4,13 @@
  * Jönköpings University
  */
 
-let x = 150;
-let y = 200;
-let s = 0.8;
-let sentence = "Hello!! I am HAPPY";
+// let x = 150;
+// let y = 200;
+// let s = 0.8;
 
 background(255, 255, 255);
 
-push();
+function emoji(x, y, s) {
 noStroke();
 
 //Face
@@ -43,22 +42,8 @@ fill(90, 90, 90);
 arc(x - 5 * s, y + 50 * s, 70 * s, 30, 0, PI, PIE);
 fill(255, 200, 0);
 ellipse(x - 5 * s, y + 32 * s, 77 * s, 60 * s);
+}
 
-pop();
-
-//Speechbubble
-fill(255, 255, 255);
-strokeWeight(2.0);
-beginShape();
-vertex(x + 150, y - 120);
-vertex(x + 50, y - 120);
-bezierVertex(x, y - 120, x, y - 180, x + 50, y - 180);
-vertex(x + 240, y - 180);
-bezierVertex(x + 290, y - 180, x + 290, y - 120, x + 240, y - 120);
-vertex(x + 180, y - 120);
-vertex(x + 140, y - 80);
-endShape(CLOSE);
-
-fill(0, 0, 0);
-textSize(20);
-text(sentence, x + 50, y - 145);
+emoji(150, 150, 0.8);
+emoji(250, 300, 0.6);
+emoji(350, 400, 0.4);
