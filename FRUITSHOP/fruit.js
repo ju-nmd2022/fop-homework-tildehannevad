@@ -16,7 +16,7 @@ for (let fruit of fruits) {
 function addToShoppingList() {
   shoppingList.push(this.innerText);
 
-  const createElement = document.createElement("div");
+  const cartElement = document.createElement("div");
 
   const spanElement = document.createElement("span");
   spanElement.innerText = this.innerText;
@@ -29,9 +29,21 @@ function addToShoppingList() {
 
   shoppingCartElement.appendChild(cartElement);
 
-  amountElement.innerText = "Items: " + shoppingList.length;
+  updateAmount();
 }
 
 function removeElement() {
-  const element = this.paranetNode;
+  const element = this.parentNode;
+
+  const fruitElement = element.querySelector("span");
+  const emoji = fruitElement.innerText;
+  const emojiIndex = shoppingList.indexOf(emoji);
+  shoppingList.splice(emojiIndex, 1);
+
+  element.parentNode.removeChild(element);
+  updateAmount();
+}
+
+function updateAmount() {
+  amountElement.innerText = "Items: " + shoppingList.length;
 }
